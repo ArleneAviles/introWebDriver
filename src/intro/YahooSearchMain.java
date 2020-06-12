@@ -15,10 +15,11 @@ public class YahooSearchMain {
 
 	public static void main(String[] args) {
 		//INICIALIZACION DE SYSTEM.SETPROPERTY()
+		System.setProperty("webdriver.edge.driver", "C:\\Windows");
 	    WebDriver driver;
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(); //arranca el navegador
 		driver.manage().timeouts().implicitlyWait(30,  TimeUnit.SECONDS);
-		driver.get("http://www.yahoo.com");
+		driver.get("http://www.yahoo.com"); //navega a la url que le indiquemos
 		WebElement searchBox = driver.findElement(By.id("uh-search-box"));
 		WebElement searchButton = driver.findElement(By.id("uh-search-button"));
 		
@@ -36,8 +37,8 @@ public class YahooSearchMain {
 			driver.switchTo().window(windowId);
 		}
 		
-		WebElement downloadLink = driver.findElement(By.linkText("Download"));
-		downloadLink.click();
+		WebElement downloadsLink = driver.findElement(By.linkText("Download"));
+		downloadsLink.click();
 		
 		driver.close();
 
